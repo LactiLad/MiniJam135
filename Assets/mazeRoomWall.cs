@@ -7,13 +7,17 @@ public class mazeRoomWall : MonoBehaviour
 {
     void OnEnable()
     {
-        transform.parent.GetComponent<mazeRoom>().enable(transform.name);
+        //transform.parent.GetComponent<mazeRoom>().enable(gameObject);
         GetComponent<MeshRenderer>().enabled = true;
         GetComponent<BoxCollider>().enabled = true;
     }
     void OnDisable()
     {
-        transform.parent.GetComponent<mazeRoom>().disable(transform.name);
+        //transform.parent.GetComponent<mazeRoom>().disable(gameObject);
+        GetComponent<MeshRenderer>().enabled = false;
+        GetComponent<BoxCollider>().enabled = false;
+    }
+    public void forceDisable() {
         GetComponent<MeshRenderer>().enabled = false;
         GetComponent<BoxCollider>().enabled = false;
     }

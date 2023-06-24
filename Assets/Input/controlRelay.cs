@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
-public class controlReader : MonoBehaviour
+public class controlRelay : MonoBehaviour
 {
     //refrences
-    NewControls controls;
+    Controls controls;
     simpleMovement sm;
     
     //vectors
@@ -19,12 +19,13 @@ public class controlReader : MonoBehaviour
     {
         sm = GetComponent<simpleMovement>();
 
-        controls = new NewControls();
+        controls = new Controls();
 
         controls.Player.Down.performed += ctx => down();
         controls.Player.Up.performed += ctx => up();
         controls.Player.Right.performed += ctx => right();
         controls.Player.Left.performed += ctx => left();
+        controls.Player.Drink.performed += ctx => drink();
     }
 
     void down() {
@@ -42,5 +43,8 @@ public class controlReader : MonoBehaviour
     void left() {
         if (sm.delay > sm.moveTime * (sm.moveStep-1))
             sm.left();
+    }
+    void drink() {
+        sm.kill();
     }
 }
