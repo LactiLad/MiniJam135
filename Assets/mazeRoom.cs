@@ -7,6 +7,13 @@ public class mazeRoom : MonoBehaviour
 {
     [SerializeField] public bool isTrap;
     public GameObject[] wallDirection = new GameObject[4];
+
+    void Update()
+    {
+        if (transform.position != new Vector3(Mathf.Round(transform.position.x), 0, Mathf.Round(transform.position.z))) {
+            transform.position = new Vector3(Mathf.Round(transform.position.x), 0, Mathf.Round(transform.position.z));
+        }
+    }
     /*void Start()
     {
         wallDirection[0] = transform.Find("Wall-X").gameObject;

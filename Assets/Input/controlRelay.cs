@@ -8,6 +8,7 @@ public class controlRelay : MonoBehaviour
     Controls controls;
     simpleMovement sm;
     
+    bool isDown, isUp, isRight, isLeft;
     //vectors
     private void OnEnable() {
         controls.Player.Enable();
@@ -21,30 +22,46 @@ public class controlRelay : MonoBehaviour
 
         controls = new Controls();
 
-        controls.Player.Down.performed += ctx => down();
-        controls.Player.Up.performed += ctx => up();
-        controls.Player.Right.performed += ctx => right();
-        controls.Player.Left.performed += ctx => left();
+        controls.Player.Down.performed += ctx => isDown = true;//down();
+        controls.Player.Down.canceled += ctx => isDown = false;//down();
+
+        controls.Player.Up.performed += ctx => isUp = true;// up();
+        controls.Player.Up.canceled += ctx => isUp = false;// up();
+
+        controls.Player.Right.performed += ctx => isRight = true;// right();
+        controls.Player.Right.canceled += ctx => isRight = false;// right();
+
+        controls.Player.Left.performed += ctx => isLeft = true;// left();
+        controls.Player.Left.canceled += ctx => isLeft = false;// left();
+
         controls.Player.Drink.performed += ctx => drink();
+        controls.Player.Interact.performed += ctx => interact();
+    }
+
+    void Update()
+    {
+        if (isDown) down();
+        if (isUp) up();
+        if (isRight) right();
+        if (isLeft) left();
     }
 
     void down() {
-        if (sm.delay > sm.moveTime * (sm.moveStep-1))
-            sm.down();
+        sm.down();
     }
     void up() {
-        if (sm.delay > sm.moveTime * (sm.moveStep-1))
-            sm.up();
+        sm.up();
     }
     void right() {
-        if (sm.delay > sm.moveTime * (sm.moveStep-1))
-            sm.right();
+        sm.right();
     }
     void left() {
-        if (sm.delay > sm.moveTime * (sm.moveStep-1))
-            sm.left();
+        sm.left();
     }
     void drink() {
-        sm.kill();
+        sm.drink();
+    }
+    void interact() {
+        sm.interact();
     }
 }

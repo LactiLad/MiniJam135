@@ -1,5 +1,5 @@
 {
-    "name": "newControls",
+    "name": "controls",
     "maps": [
         {
             "name": "Player",
@@ -45,6 +45,15 @@
                     "name": "Drink",
                     "type": "Button",
                     "id": "e742ac10-b4a9-439b-9717-ec2755ba3b9b",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Interact",
+                    "type": "Button",
+                    "id": "03f9337d-df76-44ef-b14a-96736f87e0be",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -247,6 +256,28 @@
                     "processors": "",
                     "groups": "",
                     "action": "Drink",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "24fc05f7-7622-4331-a0c9-82a10fb36775",
+                    "path": "<Keyboard>/e",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Interact",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "67614536-1c4e-49e5-9345-ae13d4514d2a",
+                    "path": "<Gamepad>/buttonWest",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Interact",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
