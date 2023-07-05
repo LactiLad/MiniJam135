@@ -13,4 +13,7 @@ public class interaction : MonoBehaviour
     }
     public string type;
     public GameObject interactableObject;
+    public GameObject interactableObject0;
+    public GameObject interactableObject1;
+    public GameObject interactableObject2;
 }
